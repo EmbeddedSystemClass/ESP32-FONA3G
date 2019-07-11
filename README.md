@@ -39,6 +39,16 @@ Here are some AT Commands I consider to be most useful:
 | AT Command  | Definition | Example | Output |
 | ------------- | ------------- | ------------- | ------------- |
 | AT  | Verify AT commands communication availability | AT | OK |
-| ATI  | Request   |  |  |
+| ATI  | Request Module's factory information  | ATI | Manufacturer: SIMCOM INCORPORATED Model: SIMCOM_SIM5320A Revision: SIM5320A_V1.5 IMEI: 014682000000000 +GCAP: +CGSM,+DS,+ES |
+| ATZ | Factory Reset Module, your best friend when messing up with random commands. | ATZ | OK |
+| AT+CGACT=1 | Enable PDP Context | AT+CGACT=1 | OK |
+| AT+CGDCONT? | Get PDP Context Value | AT+CGDCONT? | +CGDCONT: 1,"IP","hologram","0.0.0.0",0,0 |
+| AT+CGDCONT=<cid>[,<PDP_type>
+[,<APN>[,<PDP_addr>
+[,<d_comp>[,<h_comp>]]]]] | Set PDP Context Value | AT+CGDCONT=1,1,"hologram","",0,0 | OK |
+  
+  ##GPS
+  Note that the GPS commands will output the GPS values in a DDmm.mmmmmmO as default format. 
+  The equation to get the degrees only equation is DD+mm.mmmmmm/60.0 * (O=='W'||O=='S'?-1:1)
 
 
