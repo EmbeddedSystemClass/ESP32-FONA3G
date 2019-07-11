@@ -16,5 +16,29 @@ https://learn.adafruit.com/adafruit-fona-3g-cellular-gps-breakout/overview
 The Adafruit FONA 3G may not be the perfect match for this project considering a Feather packaging of a FONA exists, but this is the one I will be using in this project due to availability of this product.
 
 This device also need the followings:
-  - An active GPS Antenna (https://www.adafruit.com/product/960)
-  - A enabled SIM card from any IOT Services provider, I used Hologram (https://hologram.io/) They offer a free 1MB/Month Data     Roaming on your first prototype card, but be careful, the SMS and Calls aren't free and will be added to our balance.
+  - An active GPS Antenna (https://www.adafruit.com/product/960) (Make sure to solder the Active antenna modification on your FONA 3G board. (little pads under the GPSANT silk label)
+  - A enabled SIM card from any IOT Services provider, I used Hologram (https://hologram.io/) They offer a free 1MB/Month Data Roaming on your first prototype card, but be careful, the SMS and Calls aren't free and will be added to our balance.
+  
+# Programming the HUZZAH32
+This must be the easiest part of this project considering how well done the integration was made with different IDE. In my projects, I always use on of the following IDE to start developping with ESP32:
+  
+  1 - Arduino IDE - https://github.com/espressif/arduino-esp32
+  2 - Atom IDE/Platformio - https://randomnerdtutorials.com/programming-esp32-with-atom-text-editor-and-platformio-ide/
+  3 - Visual Code Studio/Platformio -https://marketplace.visualstudio.com/items?itemName=platformio.platformio-ide
+  
+For this project, I will be using Visual Code Studio most of the time except for quick tests that may be done in Arduino IDE.
+
+# Testing FONA 3G
+Refer to this guide: https://learn.adafruit.com/adafruit-fona-3g-cellular-gps-breakout/direct-usb-connection
+Direct USB connection will allow you to simply send AT-Commands to your device and verify it's functionalities.
+
+The reference AT Commands Manual can be found here: http://www.mt-system.ru/sites/default/files/simcom_sim5320_atc_en_v1.23.pdf
+
+Here are some AT Commands I consider to be most useful:
+
+| AT Command  | Definition | Example | Output |
+| ------------- | ------------- | ------------- | ------------- |
+| AT  | Verify AT commands communication availability | AT | OK |
+| ATI  | Request   |  |  |
+
+
