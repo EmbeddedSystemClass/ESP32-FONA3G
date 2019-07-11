@@ -28,7 +28,7 @@ This must be the easiest part of this project considering how well done the inte
   
 For this project, I will be using Visual Code Studio most of the time except for quick tests that may be done in Arduino IDE.
 
-# Testing FONA 3G
+## Testing FONA 3G
 Refer to this guide: https://learn.adafruit.com/adafruit-fona-3g-cellular-gps-breakout/direct-usb-connection
 Direct USB connection will allow you to simply send AT-Commands to your device and verify it's functionalities.
 
@@ -47,8 +47,24 @@ Here are some AT Commands I consider to be most useful:
 [,<APN>[,<PDP_addr>
 [,<d_comp>[,<h_comp>]]]]] | Set PDP Context Value | AT+CGDCONT=1,1,"hologram","",0,0 | OK |
   
-  ##GPS
-  Note that the GPS commands will output the GPS values in a DDmm.mmmmmmO as default format. 
+## Using the GPS
+  Note that the GPS commands will output the GPS values in a DDmm.mmmmmm,O as default format. 
   The equation to get the degrees only equation is DD+mm.mmmmmm/60.0 * (O=='W'||O=='S'?-1:1)
+  
+  1. Make sure your Active antenna is connected and that you are in a signal accessible environnement (Not in a bunker), for example, in my office, I couldn't get a fix. Only by taking the device in the parking lot could I get a result. But at home in my kitchen, close to the windows and doors and exterior in general, I had a pretty good and quick fix with a 2m precision in not time.
+  2. Either manually enable the GPS using AT+CGPS=1 (AT+CGPS? must return 1,1 if enabled) or set the AT+CGPSAUTO=1 to make the device auto boot it's gps anytime the power is on.
+  3. call AT+CGPSINFO to get a DDmm.mmmmmm,O location reading.
 
+## Enabling your 3G module and SIM card
 
+Here are the steps I followed to assure that my device is up and running and can access network services:
+1. Buy a SIM Card and insert it in your device. Mine was bought from Hologram so the guide can be followed here: https://hologram.io/docs/guide/connect/connect-device/
+2. Once the card is activated on your hologram dashboard, it should show that the card status is Live (or green light). This means your device access as been allowed but your device has yet to establish a first contact with its service provider. 
+3. Access the AT Commands mode and start by verifying your AT and ATI commands.
+4. use: AT+CSQ to verify your signal strength (second number) as -XXdBm (The smaller the better, 115 being the worst.)
+4. Set your APN context as follow: 
+- AT+CGDCONT=1,"IP","hologram","",0,0   // This sets the context
+- AT+CGATT=1                            // This will try to force the attachement to the network service provider.
+- AT+CGACT=1                            // This request to active the context. this line needs to be called every time the device looses network service.
+- AT+CGPADDR                            // If all went well, this command should return you a valid address such as 10.155.XXX.XXX or else but not 0.0.0.0
+5. If all went well. your device should now be connected and ready to make some sweet HTTP/MQTT, or whatever protocol you prefer, requests.
