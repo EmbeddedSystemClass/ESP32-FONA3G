@@ -22,9 +22,9 @@ This device also need the followings:
 # Programming the HUZZAH32
 This must be the easiest part of this project considering how well done the integration was made with different IDE. In my projects, I always use on of the following IDE to start developping with ESP32:
   
-  1 - Arduino IDE - https://github.com/espressif/arduino-esp32
-  2 - Atom IDE/Platformio - https://randomnerdtutorials.com/programming-esp32-with-atom-text-editor-and-platformio-ide/
-  3 - Visual Code Studio/Platformio -https://marketplace.visualstudio.com/items?itemName=platformio.platformio-ide
+  1. Arduino IDE - https://github.com/espressif/arduino-esp32
+  2. Atom IDE/Platformio - https://randomnerdtutorials.com/programming-esp32-with-atom-text-editor-and-platformio-ide/
+  3. Visual Code Studio/Platformio -https://marketplace.visualstudio.com/items?itemName=platformio.platformio-ide
   
 For this project, I will be using Visual Code Studio most of the time except for quick tests that may be done in Arduino IDE.
 
