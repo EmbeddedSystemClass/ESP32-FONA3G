@@ -43,9 +43,8 @@ Here are some AT Commands I consider to be most useful:
 | ATZ | Factory Reset Module, your best friend when messing up with random commands. | ATZ | OK |
 | AT+CGACT=1 | Enable PDP Context | AT+CGACT=1 | OK |
 | AT+CGDCONT? | Get PDP Context Value | AT+CGDCONT? | +CGDCONT: 1,"IP","hologram","0.0.0.0",0,0 |
-| AT+CGDCONT=<cid>[,<PDP_type>
-[,<APN>[,<PDP_addr>
-[,<d_comp>[,<h_comp>]]]]] | Set PDP Context Value | AT+CGDCONT=1,1,"hologram","",0,0 | OK |
+| AT+CGDCONT=<cid>[,<PDP_type>[,<APN>[,<PDP_addr>[,<d_comp>[,<h_comp>]]]]] | Set PDP Context Value | AT+CGDCONT=1,1,"hologram","",0,0 | OK |
+| AT+CGDPADDR | Get Network Address attributed | AT+CGDPADDR | +CGPADDR: 1,"XXX.XXX.XXX.XXX" OK |
   
 ## Using the GPS
   Note that the GPS commands will output the GPS values in a DDmm.mmmmmm,O as default format. 
